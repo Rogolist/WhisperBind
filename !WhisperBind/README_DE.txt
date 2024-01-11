@@ -11,7 +11,6 @@ die Taste drücken Klicken Sie auf „Speichern“ und Sie können das Einstellu
 Ihres Kontos müssen Sie diese Informationen nun nicht mehr in die Einstellungen eingeben, sie werden automatisch geladen.
 
 Gut geeignet für das Whispercast-Addon, wenn Sie nicht viele verschiedene Nachrichten senden müssen.
-Wenn das Fenster über den Bildschirm hinausgeht, müssen Sie den Befehl 
+Wenn das Fenster über den Bildschirm hinausgeht, müssen Sie den Befehl schreiben.
 /run WBInterfaceFrame:SetPoint("TOPLEFT",600,-200)
-schreiben.
 Dadurch wird das Fenster in die Mitte des Bildschirms gebracht.

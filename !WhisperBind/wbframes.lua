@@ -4,7 +4,7 @@ WB_button = {}
 WB_editbox = {}
 
 
-function WBInterfaceFrame_Resize(count)
+function WB_InterfaceFrame_Resize(count)
 	--<AbsDimension x="72" y="260"/>
 	WBInterfaceFrame:SetWidth(72);
     WBInterfaceFrame:SetHeight(wbcount*23+30);
@@ -15,7 +15,7 @@ function WBInterfaceFrame_Resize(count)
 end
 
 
-function wbinterface_make_buttons()	-- /run interface_make_buttons()
+function WB_interface_make_buttons()	-- /run interface_make_buttons()
 	--https://wowwiki-archive.fandom.com/wiki/UIHANDLER_OnClick
 	local j = 1
 
@@ -59,7 +59,7 @@ function wbinterface_make_buttons()	-- /run interface_make_buttons()
 		--WB_button[y]:SetText("free");
 		local yy = y
 		WB_button[y]:SetScript("OnClick", function()
-			WBClickButton(yy)
+			WB_ClickButton(yy)
 			--print(yy)
 		end)
 		--WB_button[y]:Click("test"..y)
@@ -69,7 +69,7 @@ function wbinterface_make_buttons()	-- /run interface_make_buttons()
 	
 end
 
-function wbinterface_make_editboxes()
+function WB_interface_make_editboxes()
 	--https://wowwiki-archive.fandom.com/wiki/UIOBJECT_EditBox
 	local j = 1
 

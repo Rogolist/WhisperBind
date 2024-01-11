@@ -25,11 +25,11 @@
 
 		<Scripts>
 			<OnLoad>
-				wbinterface_OnLoad();
+				WB_interface_OnLoad();
 				this:RegisterForDrag("LeftButton");
 			</OnLoad>
 			<OnEvent>
-				wbinterface_OnEvent(event);
+				WB_interface_OnEvent(event);
 			</OnEvent>
 			<OnDragStart>this:StartMoving();</OnDragStart>
 			<OnDragStop>this:StopMovingOrSizing();</OnDragStop>

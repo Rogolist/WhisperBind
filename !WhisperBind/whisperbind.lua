@@ -15,7 +15,7 @@ WB_messagebox = {}
 
 
 
-function wbinterface_OnLoad()
+function WB_interface_OnLoad()
     this:RegisterEvent("ADDON_LOADED");
 
     DEFAULT_CHAT_FRAME:AddMessage("WhisperBind is loaded", 1.0, 1.0, 0.0)
@@ -28,7 +28,7 @@ end
 
 
 -- https://wowwiki-archive.fandom.com/wiki/Saving_variables_between_game_sessions
-function wbinterface_OnEvent(event)
+function WB_interface_OnEvent(event)
 	if (event == "ADDON_LOADED") then
 		--addons_massiv[iii] = ("LOADED: === "..arg1)
 		--iii = iii + 1;
@@ -38,16 +38,18 @@ function wbinterface_OnEvent(event)
 			wbopt = 0;
 			if (wbcount == nil) then wbcount = 3 end
 			
-			WBInterfaceFrame_Resize(wbcount)
-			wbinterface_make_buttons();
-			wbinterface_make_editboxes();
+			WB_InterfaceFrame_Resize(wbcount)
+			WB_interface_make_buttons();
+			WB_interface_make_editboxes();
+			
+			--WB_defaultVariables();
 			WB_loadvalue();
 		end
 	end
 end
 
 
-function WBClickButton(id)
+function WB_ClickButton(id)
 	--local text = clicked_button:GetText()
 	id = id - 5
 	--DEFAULT_CHAT_FRAME:AddMessage("id = "..id, 1.0, 1.0, 0.0)
@@ -117,19 +119,27 @@ function WB_loadvalue()
 	for ii = 1,wbcount do
 		local b = ii+5
 		--WB_button[b]:SetText("Test");
+		if (WB_buttonbox[ii]~=nil) then
 		WB_button[b]:SetText(WB_buttonbox[ii]);
+		WB_editbox[ii]:SetText(WB_buttonbox[ii]);
+		end
 		--DEFAULT_CHAT_FRAME:AddMessage("WB_button["..b.."] = "..WB_buttonbox[ii], 1.0, 1.0, 0.0)
 		
 		--WB_editbox[ii]:SetText("Name");
-		WB_editbox[ii]:SetText(WB_buttonbox[ii]);
+		
+		
 		--DEFAULT_CHAT_FRAME:AddMessage("WB_editbox["..ii.."] = "..WB_buttonbox[ii], 1.0, 1.0, 0.0)
 		local p = ii + wbcount
 		--WB_editbox[p]:SetText("Play");
+		if (WB_playerbox[ii]~=nil) then
 		WB_editbox[p]:SetText(WB_playerbox[ii]);
+		end
 		--DEFAULT_CHAT_FRAME:AddMessage("WB_editbox["..p.."] = "..WB_playerbox[ii], 1.0, 1.0, 0.0)
 		local m = ii + wbcount*2
 		--WB_editbox[m]:SetText("Mess");
+		if (WB_messagebox[ii]~=nil) then
 		WB_editbox[m]:SetText(WB_messagebox[ii]);
+		end
 		--DEFAULT_CHAT_FRAME:AddMessage("WB_editbox["..m.."] = "..WB_messagebox[ii], 1.0, 1.0, 0.0)
 	end
 end
@@ -149,7 +159,7 @@ function WB_debug()
 	
 end
 
-function WBdefaultVariables()
+function WB_defaultVariables()
 	for i=1,wbcount do
 		WB_buttonbox[i] = "name"..i
 		WB_playerbox[i] = "play"..i
